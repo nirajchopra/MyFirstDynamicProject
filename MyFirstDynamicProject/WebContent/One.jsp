@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="">
+	<form action="Two.jsp" method="post">
 		<table>
 			<tr>
 				<th>First Name :</th>
@@ -15,11 +15,11 @@
 			</tr>
 			<tr>
 				<th>Last Name :</th>
-				<td><input type="text" name="lastname"></td>
+				<td><input type="text" name="lastName"></td>
 			</tr>
 			<tr>
 				<th>Login ID:</th>
-				<td><input type="text" name="LoginId"></td>
+				<td><input type="text" name="loginId"></td>
 			</tr>
 			<tr>
 				<th>Password :</th>
