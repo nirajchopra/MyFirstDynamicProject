@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet("/FirstServlet")
 public class FirstServlet extends HttpServlet {
 
@@ -22,14 +21,16 @@ public class FirstServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("in do post method");
-		
-		String fname =  request.getParameter("fname");
-		String lname =  request.getParameter("lname");
-		String email =  request.getParameter("email");
-		String pwd =  request.getParameter("pwd");
-		
 
-		
+		String fname = request.getParameter("fname");
+		String lname = request.getParameter("lname");
+		String email = request.getParameter("email");
+		String pwd = request.getParameter("pwd");
+
+		System.out.println(fname);
+		System.out.println(lname);
+		System.out.println(email);
+		System.out.println(pwd);
 	}
 
 }
