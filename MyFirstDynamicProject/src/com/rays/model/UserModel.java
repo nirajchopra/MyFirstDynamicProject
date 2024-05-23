@@ -235,7 +235,7 @@ public class UserModel {
 			bean.setLastName(rs.getString(3));
 			bean.setLoginId(rs.getString(4));
 			bean.setPassword(rs.getString(5));
-			bean.setAddress(rs.getString(7));
+			bean.setAddress(rs.getString(6));
 			list.add(bean);
 
 		}

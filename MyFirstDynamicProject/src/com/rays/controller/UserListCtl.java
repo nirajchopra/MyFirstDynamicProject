@@ -16,7 +16,6 @@ import com.rays.model.UserModel;
 @WebServlet("/UserListCtl")
 public class UserListCtl extends HttpServlet {
 
-	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -27,6 +26,7 @@ public class UserListCtl extends HttpServlet {
 			List list = model.search(bean);
 			request.setAttribute("userList", list);
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -35,10 +35,22 @@ public class UserListCtl extends HttpServlet {
 
 	}
 
-	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-	}
+		UserModel model = new UserModel();
+		String op = request.getParameter("operation");
+		if (op.equals("Delete")) {
+			String[] ids = request.getParameterValues("ids");
+			for (String id : ids) {
+				try {
+					model.delete(Integer.parseInt(id));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 
+			}
+			response.sendRedirect("UserListCtl");
+		}
+	}
 }
