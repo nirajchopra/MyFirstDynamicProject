@@ -15,6 +15,11 @@
 	<form action="UserListCtl" method="post">
 
 		<%
+			int pageNo = (int) request.getAttribute("pageNo");
+			int index = ((pageNo - 1) * 5) + 1;
+
+			List nextList = (List) request.getAttribute("nextList");
+
 			List userList = (List) request.getAttribute("userList");
 		%>
 
@@ -28,6 +33,7 @@
 				<th>password</th>
 				<th>Address</th>
 				<th>Action</th>
+				<th>Next</th>
 			</tr>
 			<%
 				Iterator<UserBean> it = userList.iterator();
@@ -42,7 +48,9 @@
 				<td><%=bean.getPassword()%></td>
 				<td><%=bean.getAddress()%></td>
 				<td><input type="checkbox" name="ids" value="<%=bean.getId()%>"></td>
-
+				<td style="text-align: right;"><input type="submit"
+					name="operation" value="next"
+					<%=(nextList.size() != 0) ? "" : "disabled"%>></td>
 			</tr>
 			<%
 				}
