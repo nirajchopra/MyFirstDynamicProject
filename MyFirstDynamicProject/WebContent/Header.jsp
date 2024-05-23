@@ -4,10 +4,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>My First JSP</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<h1>Hello JSP</h1>
-	<a href = "UserRegistrationView.jsp">SignUp</a>
+	<h3>
+		<a href="UserRegistrationCtl">SignUp</a> | <a href="UserListCtl">UserList</a>
+	</h3>
+	<hr>
+
 </body>
 </html>

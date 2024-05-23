@@ -6,8 +6,6 @@ import java.util.ResourceBundle;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
-
-
 public final class JDBCDataSource {
 
 	// Step 2 make self type of static variable
