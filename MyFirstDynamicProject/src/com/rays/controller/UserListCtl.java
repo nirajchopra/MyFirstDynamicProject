@@ -18,19 +18,13 @@ public class UserListCtl extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		int pageNo = 1;
-		int pageSize = 5;
 
 		UserModel model = new UserModel();
 		UserBean bean = new UserBean();
 
 		try {
 			List list = model.search(bean);
-			List nextList = model.search(null);
 			request.setAttribute("userList", list);
-			request.setAttribute("nextList", nextList);
-			request.setAttribute("pageNo", pageNo);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -42,42 +36,23 @@ public class UserListCtl extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	        throws ServletException, IOException {
 		
-		UserBean bean = null;
-		int pageNo = Integer.parseInt(request.getParameter("pageNo"));
-		int pageSize = 5;
-
-		UserModel model = new UserModel();
-		String op = request.getParameter("operation");
-		if (op.equals("next")) {
-			pageNo++;
-		}
-
-		if (op.equals("Delete")) {
-			String[] ids = request.getParameterValues("ids");
-			for (String id : ids) {
-				try {
+		 UserModel model = new UserModel();
+	    String op = request.getParameter("operation");
+	    if (op.equals("Delete")) {
+	        String[] ids = request.getParameterValues("ids");
+	        for (String id : ids) {
+	        	try {
 					model.delete(Integer.parseInt(id));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-
-			}
-			response.sendRedirect("UserListCtl");
-		}
-		
-		try {
-			List list = model.search(bean);
-			List nextList = model.search(bean);
-			request.setAttribute("list", list);
-			request.setAttribute("nextList", nextList);
-			request.setAttribute("pageNo", pageNo);
-			RequestDispatcher rd = request.getRequestDispatcher("UserListView.jsp");
-			rd.forward(request, response);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
+	            // Call the method to delete the user with the given ID
+	           
+	        }
+	        // Redirect to the same page to show the updated list
+	        response.sendRedirect("UserListCtl");
+	    }
 	}
 }
