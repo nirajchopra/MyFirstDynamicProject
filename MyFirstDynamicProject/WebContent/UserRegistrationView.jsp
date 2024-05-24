@@ -6,7 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body bgcolor="skyblue">
 	<center>
 		<form action="UserRegistrationCtl" method="post">
 			<%
@@ -19,7 +19,7 @@
 			<%
 				}
 			%>
-
+			<h1 align="center">SignUp</h1>
 			<table>
 				<tr>
 

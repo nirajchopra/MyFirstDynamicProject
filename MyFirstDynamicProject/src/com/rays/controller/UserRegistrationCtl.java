@@ -28,8 +28,6 @@ public class UserRegistrationCtl extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		
-
 		UserBean bean = new UserBean();
 		UserModel model = new UserModel();
 

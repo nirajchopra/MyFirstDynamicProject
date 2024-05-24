@@ -45,7 +45,7 @@ public class UserModel {
 
 		Connection conn = JDBCDataSource.getConnection();
 
-		PreparedStatement ps = conn.prepareStatement("insert into jdbc values(?, ?, ?, ?, ?, ?, ?)");
+		PreparedStatement ps = conn.prepareStatement("insert into jdbc values(?, ?, ?, ?, ?, ?)");
 
 		conn.setAutoCommit(false);
 
@@ -62,7 +62,7 @@ public class UserModel {
 			ps.setString(3, bean.getLastName());
 			ps.setString(4, bean.getLoginId());
 			ps.setString(5, bean.getPassword());
-			ps.setString(7, bean.getAddress());
+			ps.setString(6, bean.getAddress());
 
 			int i = ps.executeUpdate();
 
@@ -87,8 +87,8 @@ public class UserModel {
 		ps.setString(2, bean.getLastName());
 		ps.setString(3, bean.getLoginId());
 		ps.setString(4, bean.getPassword());
-		ps.setString(6, bean.getAddress());
-		ps.setInt(7, bean.getId());
+		ps.setString(5, bean.getAddress());
+		ps.setInt(6, bean.getId());
 
 		int i = ps.executeUpdate();
 
@@ -139,7 +139,7 @@ public class UserModel {
 			bean.setLastName(rs.getString(3));
 			bean.setLoginId(rs.getString(4));
 			bean.setPassword(rs.getString(5));
-			bean.setAddress(rs.getString(7));
+			bean.setAddress(rs.getString(6));
 
 		}
 		return bean;
@@ -167,7 +167,7 @@ public class UserModel {
 			bean.setLastName(rs.getString(3));
 			bean.setLoginId(rs.getString(4));
 			bean.setPassword(rs.getString(5));
-			bean.setAddress(rs.getString(7));
+			bean.setAddress(rs.getString(6));
 
 		}
 		return bean;
@@ -196,7 +196,7 @@ public class UserModel {
 			bean.setLastName(rs.getString(3));
 			bean.setLoginId(rs.getString(4));
 			bean.setPassword(rs.getString(5));
-			bean.setAddress(rs.getString(7));
+			bean.setAddress(rs.getString(6));
 
 		}
 		return bean;
