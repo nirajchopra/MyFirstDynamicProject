@@ -14,7 +14,7 @@
 
 	<%@ include file="Header.jsp"%>
 	<form action="UserListCtl" method="post">
-
+		<h2 style="color: darkblue" align="center">User List</h2>
 		<%
 			List userList = (List) request.getAttribute("userList");
 			String msg = (String) request.getAttribute("msg");
@@ -27,25 +27,30 @@
 		<%
 			}
 		%>
-		<table border="1px" width="100%">
-		<h1 align = "center">UserList</h1>
+		<center>
+		<table>
 			<tr>
 				<lable>FristName :</lable>
 				<input type="text" name="firstName" placeholder="Enter First Name">
 
 			</tr>
+			&nbsp;
 			<tr>
-
 				<input type="submit" name="operation" value="search">
-
 			</tr>
-			<tr>
+		</table>
+		</center>
+		<table border="1px" style="border-collapse: collapse;" width="100%">
+
+			<br>
+			<tr bgcolor="skyblue">
 				<th>select</th>
 				<th>Id</th>
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>LoginId</th>
 				<th>Address</th>
+				<th>Edit</th>
 			</tr>
 			<%
 				Iterator<UserBean> it = userList.iterator();
@@ -60,6 +65,7 @@
 				<td><%=bean.getLastName()%></td>
 				<td><%=bean.getLoginId()%></td>
 				<td><%=bean.getAddress()%></td>
+				<td><a href="UserCtl?id=<%=bean.getId()%>">Edit</a></td>
 			</tr>
 			<%
 				}

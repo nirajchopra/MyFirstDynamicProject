@@ -219,7 +219,7 @@ public class UserModel {
 
 		}
 
-		System.out.println("sql===> " + sql.toString());
+		System.out.println("sql=======> " + sql.toString());
 
 		PreparedStatement pstmt = conn.prepareStatement(sql.toString());
 

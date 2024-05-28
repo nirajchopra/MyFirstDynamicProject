@@ -7,20 +7,25 @@
 <title>Insert title here</title>
 </head>
 <body bgcolor="skyblue">
+	<%@ include file="Header.jsp"%>
 	<center>
 		<form action="UserRegistrationCtl" method="post">
+			<h2 style="color: darkblue" align="center">UserRegistration</h2>
 			<%
 				String msg = (String) request.getAttribute("msg");
 			%>
 			<%
 				if (msg != null) {
 			%>
-			<%=msg%>
+			<center>
+				<font style="color: red"><%=msg%></font>
+			</center>
+
 			<%
 				}
 			%>
 			<h1 align="center">SignUp</h1>
-			<table>
+			<table align="center">
 				<tr>
 
 					<th>First Name</th>
@@ -38,7 +43,8 @@
 				<tr>
 
 					<th>LoginId</th>
-					<td><input type="text" name="email" placeholder="Enter Email"></td>
+					<td><input type="text" name="email" placeholder="Enter Email">
+					</td>
 
 				</tr>
 				<tr>
@@ -62,6 +68,8 @@
 
 				</tr>
 			</table>
+
+
 
 		</form>
 	</center>

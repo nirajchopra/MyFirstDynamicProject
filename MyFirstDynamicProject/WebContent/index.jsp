@@ -6,8 +6,10 @@
 <meta charset="ISO-8859-1">
 <title>My First JSP</title>
 </head>
-<body>
-	<h1>Hello JSP</h1>
-	<a href = "UserRegistrationView.jsp">SignUp</a>
+<body bgcolor="skyblue">
+	<center>
+		<h1>Hello JSP</h1>
+		<a href="UserRegistrationView.jsp">SignUp</a>
+	</center>
 </body>
 </html>

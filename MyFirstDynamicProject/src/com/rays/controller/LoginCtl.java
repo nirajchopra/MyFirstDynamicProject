@@ -15,13 +15,22 @@ import com.rays.model.UserModel;
 
 @WebServlet("/LoginCtl")
 public class LoginCtl extends HttpServlet {
+
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse responsep)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		String op = request.getParameter("operation");
+
 		HttpSession session = request.getSession();
-		session.invalidate();
-		responsep.sendRedirect("LoginView.jsp");
+
+		if (op != null) {
+
+			session.invalidate();
+
+		}
+
+		response.sendRedirect("LoginView.jsp");
 	}
 
 	@Override
@@ -37,22 +46,26 @@ public class LoginCtl extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		if (op.equals("signIn")) {
+
 			try {
 				bean = model.authenticate(loginId, pwd);
 				if (bean != null) {
+
 					session.setAttribute("user", bean);
 					RequestDispatcher rd = request.getRequestDispatcher("Welcome.jsp");
 					rd.forward(request, response);
 				} else {
-					request.setAttribute("msg", "Invalid LoginId and Password");
+					request.setAttribute("msg", "Invalid Login Id or Password");
 					RequestDispatcher rd = request.getRequestDispatcher("LoginView.jsp");
 					rd.forward(request, response);
 				}
-
 			} catch (Exception e) {
-				// TODO: handle exception
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
+
 		}
+
 	}
 
 }

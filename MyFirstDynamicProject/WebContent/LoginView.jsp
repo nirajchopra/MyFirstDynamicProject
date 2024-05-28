@@ -10,20 +10,33 @@
 	<%@ include file="Header.jsp"%>
 	<%
 		String msg = (String) request.getAttribute("msg");
+		String error = (String) request.getAttribute("error");
 	%>
 
 	<%
 		if (msg != null) {
 	%>
-	<span style="color: red"><%=msg%></span>
+	<center>
+	<font style="color:green"><%=msg %></font>
+	</center>
+	<%
+		}
+	%>
+	<%
+		if (error != null) {
+	%>
+	<center>
+	<font style="color:red"><%=error %></font>
+	</center>
 	<%
 		}
 	%>
 
 	<form action="LoginCtl" method="post">
+		<h2 style="color: darkblue" align="center">Login</h2>
 		<center>
-			<h1 align="center">SignIn</h1>
-			<table>
+
+			<table align="center">
 				<tr>
 					<th>LoginId :</th>
 					<td><input type="text" name="loginId"
