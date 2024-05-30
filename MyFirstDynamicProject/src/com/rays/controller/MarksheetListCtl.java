@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.rays.bean.MarksheetBean;
 import com.rays.model.MarksheetModel;
 
-@WebServlet("/MarksheetListCtl.do")
+@WebServlet("/MarksheetListCtl")
 public class MarksheetListCtl extends HttpServlet {
 
 	@Override

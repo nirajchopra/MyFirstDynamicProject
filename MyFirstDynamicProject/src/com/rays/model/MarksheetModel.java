@@ -66,7 +66,7 @@ public class MarksheetModel {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/marksheet", "root", "root");
-		PreparedStatement ps = conn.prepareStatement("DELETE FROM marks WHERE id = ?");
+		PreparedStatement ps = conn.prepareStatement("delete from marks where id = ?");
 
 		ps.setInt(1, userId);
 
@@ -76,7 +76,7 @@ public class MarksheetModel {
 	}
 
 	public List search() throws Exception {
-		String sql = "SELECT * FROM your_table_name";
+		String sql = "select * from marks";
 		List list = new ArrayList();
 		try (Connection connection = getConnection();
 				PreparedStatement ps = connection.prepareStatement(sql);
@@ -93,7 +93,7 @@ public class MarksheetModel {
 				list.add(bean);
 			}
 		}
-		return null;
+		return list;
 	}
 
 	public MarksheetBean findByRollNo1(int rollNo) throws Exception {

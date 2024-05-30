@@ -14,7 +14,7 @@ public class TestMarksheetModel {
 //		testDelete();
 //		testSearch();
 //		testFindByPk();
-		testFindByRollNo();
+//		testFindByRollNo();
 
 	}
 
@@ -61,9 +61,13 @@ public class TestMarksheetModel {
 
 		if (list != null && !list.isEmpty()) {
 			for (MarksheetBean bean : list) {
-				System.out.println(
-						bean.getId() + " " + bean.getFirstName() + " " + bean.getLastName() + " " + bean.getRollNo()
-								+ " " + bean.getChemistry() + " " + bean.getPhysics() + " " + bean.getMaths());
+				System.out.println(bean.getRollNo());
+				System.out.println(bean.getId());
+				System.out.println(bean.getFirstName());
+				System.out.println(bean.getLastName());
+				System.out.println(bean.getPhysics());
+				System.out.println(bean.getChemistry());
+				System.out.println(bean.getMaths());
 			}
 		} else {
 			System.out.println("No user marks found.");
