@@ -13,7 +13,7 @@
 
 
 	<%@ include file="Header.jsp"%>
-	<form action="UserListCtl" method="post">
+	<form action="UserListCtl.do" method="post">
 		<h2 style="color: darkblue" align="center">User List</h2>
 		<%
 			List userList = (List) request.getAttribute("userList");
@@ -30,7 +30,7 @@
 		<center>
 		<table>
 			<tr>
-				<lable>FristName :</lable>
+				<lable>FirstName :</lable>
 				<input type="text" name="firstName" placeholder="Enter First Name">
 
 			</tr>
@@ -43,7 +43,7 @@
 		<table border="1px" style="border-collapse: collapse;" width="100%">
 
 			<br>
-			<tr bgcolor="skyblue">
+			<tr bgcolor="skyblue" align="center">
 				<th>select</th>
 				<th>Id</th>
 				<th>First Name</th>
@@ -65,7 +65,7 @@
 				<td><%=bean.getLastName()%></td>
 				<td><%=bean.getLoginId()%></td>
 				<td><%=bean.getAddress()%></td>
-				<td><a href="UserCtl?id=<%=bean.getId()%>">Edit</a></td>
+				<td><a href="UserCtl.do?id=<%=bean.getId()%>">Edit</a></td>
 			</tr>
 			<%
 				}
