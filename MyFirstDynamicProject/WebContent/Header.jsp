@@ -30,7 +30,9 @@
 	|
 	<a href="LoginCtl?operation=logout">Logout</a> |
 	<a href="UserListCtl.do">UserList</a> |
-	<a href="UserCtl.do">Add User</a>
+	<a href="UserCtl.do">Add User</a> |
+	<a href="MarksheetCtl.do">Marksheet User</a> |
+	<a href="MarksheetListCtl.do">MarksheetList</a>
 	<%
 		} else {
 	%>
