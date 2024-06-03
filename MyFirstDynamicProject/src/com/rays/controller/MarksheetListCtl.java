@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.rays.bean.MarksheetBean;
 import com.rays.model.MarksheetModel;
 
-@WebServlet("/MarksheetListCtl")
+@WebServlet("/MarksheetListCtl.do")
 public class MarksheetListCtl extends HttpServlet {
 
 	@Override
@@ -30,7 +30,7 @@ public class MarksheetListCtl extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		RequestDispatcher rd = req.getRequestDispatcher("MarksheetList.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("MarksheetListView.jsp");
 		rd.forward(req, resp);
 
 	}

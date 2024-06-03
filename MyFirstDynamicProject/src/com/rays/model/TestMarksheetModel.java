@@ -80,10 +80,15 @@ public class TestMarksheetModel {
 		marks.delete(d);
 	}
 
-	private static void testUpdate() throws Exception {
+	private static void testUpdate(MarksheetBean bean) throws Exception {
 		MarksheetModel marks = new MarksheetModel();
 		int i = 8;
-		marks.update(i);
+		try {
+		    marks.update(bean);
+		} catch (Exception e) {
+		    System.err.println("Error updating marksheet: " + e.getMessage());
+		    e.printStackTrace();
+		}
 
 	}
 
@@ -91,9 +96,9 @@ public class TestMarksheetModel {
 		MarksheetBean beans = new MarksheetBean();
 		MarksheetModel marks = new MarksheetModel();
 
-		beans.setFirstName("Vishnu");
-		beans.setLastName("Prajapati");
-		beans.setRollNo(110);
+		beans.setFirstName("Himanshu");
+		beans.setLastName("Chopra");
+		beans.setRollNo(114);
 		beans.setChemistry(80);
 		beans.setPhysics(85);
 		beans.setMaths(90);

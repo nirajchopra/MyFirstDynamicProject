@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.rays.bean.MarksheetBean;
+import com.rays.util.JDBCDataSource;
 import com.rays.bean.MarksheetBean;;
 
 public class MarksheetModel {
@@ -48,17 +49,23 @@ public class MarksheetModel {
 
 	}
 
-	public void update(int userId) throws Exception {
+	public void update(MarksheetBean bean) throws Exception {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/marksheet", "root", "root");
 		PreparedStatement ps = conn
 				.prepareStatement("UPDATE marks SET firstname = 'Monti',lastname = 'Singh Pawar' WHERE id = ?");
 
-		ps.setInt(1, userId);
+		ps.setInt(1, bean.getRollNo());
+		ps.setString(2, bean.getFirstName());
+		ps.setString(3, bean.getLastName());
+		ps.setInt(4, bean.getPhysics());
+		ps.setInt(5, bean.getChemistry());
+		ps.setInt(6, bean.getMaths());
+		ps.setInt(7, bean.getId());
 
 		ps.executeUpdate();
-		System.out.println("User with ID " + userId + " updated successfully.");
+		System.out.println("User with ID " + bean + " updated successfully.");
 
 	}
 
@@ -76,22 +83,30 @@ public class MarksheetModel {
 	}
 
 	public List search() throws Exception {
-		String sql = "select * from marks";
+
+		Class.forName("com.mysql.cj.jdbc.Driver");
+
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/marksheet", "root", "root");
+		PreparedStatement pstm = conn.prepareStatement("select * from marks");
+		System.out.println("connection successfullyyy");
+		ResultSet rs = pstm.executeQuery();
 		List list = new ArrayList();
-		try (Connection connection = getConnection();
-				PreparedStatement ps = connection.prepareStatement(sql);
-				ResultSet rs = ps.executeQuery()) {
-			while (rs.next()) {
-				MarksheetBean bean = new MarksheetBean();
-				bean.setId(rs.getInt("id"));
-				bean.setFirstName(rs.getString("firstName"));
-				bean.setLastName(rs.getString("lastName"));
-				bean.setRollNo(rs.getInt("rollNo"));
-				bean.setChemistry(rs.getInt("chemistry"));
-				bean.setPhysics(rs.getInt("physics"));
-				bean.setMaths(rs.getInt("maths"));
-				list.add(bean);
-			}
+		MarksheetBean bean = new MarksheetBean();
+		if (rs != null) {
+
+			System.out.println("data get success");
+
+		}
+		while (rs.next()) {
+			bean.setId(rs.getInt(1));
+			bean.setFirstName(rs.getString(2));
+			bean.setLastName(rs.getString(3));
+			bean.setRollNo(rs.getInt(4));
+			bean.setChemistry(rs.getInt(6));
+			bean.setPhysics(rs.getInt(5));
+			bean.setMaths(rs.getInt(7));
+			list.add(bean);
+
 		}
 		return list;
 	}

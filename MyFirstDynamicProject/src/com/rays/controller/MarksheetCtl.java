@@ -12,11 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.rays.bean.MarksheetBean;
 import com.rays.model.MarksheetModel;
 
-@WebServlet("/MarksheetCtl")
+@WebServlet("/MarksheetCtl.do")
 public class MarksheetCtl extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		resp.setContentType("text/html");
+
+		System.out.println("in marksheetCtl get method");
+
 		String id = req.getParameter("id");
 		MarksheetModel marks = new MarksheetModel();
 		MarksheetBean bean = null;
@@ -61,7 +66,7 @@ public class MarksheetCtl extends HttpServlet {
 				req.setAttribute("msg", "Marksheet added successfully.");
 			} else if ("update".equals(op)) {
 				bean.setId(Integer.parseInt(req.getParameter("id")));
-				marks.update(8);
+				marks.update(bean);
 				req.setAttribute("msg", "Marksheet updated successfully.");
 			}
 			req.setAttribute("bean", bean);
